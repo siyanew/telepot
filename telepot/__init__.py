@@ -73,7 +73,7 @@ all_content_types = [
     'contact', 'location', 'venue', 'new_chat_member', 'left_chat_member', 'new_chat_title',
     'new_chat_photo',  'delete_chat_photo', 'group_chat_created', 'supergroup_chat_created',
     'channel_chat_created', 'migrate_to_chat_id', 'migrate_from_chat_id', 'pinned_message',
-    'new_chat_members', 'invoice', 'successful_payment'
+    'new_chat_members', 'invoice', 'successful_payment','poll'
 ]
 
 def glance(msg, flavor='chat', long=False):
@@ -1162,6 +1162,7 @@ class Bot(_BotBase):
 
         def relay_to_collector(update):
             key = _find_first_key(update, ['message',
+                                           'poll',
                                            'edited_message',
                                            'channel_post',
                                            'edited_channel_post',
